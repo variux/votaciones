@@ -1,0 +1,76 @@
+{% include "backend/header.html" %}
+
+<div class="static-content-wrapper">
+                    <div class="static-content">
+                        <div class="page-content">
+                            <ol class="breadcrumb">
+                                
+<li><a href="index.html">Home</a></li>
+<li><a href="#">Estudiantes</a></li>
+<li class="active"><a href="#">Crear</a></li>
+
+                            </ol>
+                            <div class="container-fluid">
+                                
+                                <div data-widget-group="group1" class="ui-sortable">
+
+    <div class="panel panel-default" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+        <div class="panel-heading">
+            <h2>Creando estudiante</h2>
+            <div class="panel-ctrls" data-actions-container="" data-action-collapse="{&quot;target&quot;: &quot;.panel-body&quot;}"><span class="button-icon has-bg"><i class="ti ti-angle-down"></i></span></div>
+        </div>
+        <div class="panel-editbox" data-widget-controls=""></div>
+        <div class="panel-body">
+            <form action="" enctype="multipart/form-data" method="POST" class="form-horizontal row-border">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nombre</label>
+                    <div class="col-sm-8">
+                        {{create_estudiante.nombre}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Cédula</label>
+                    <div class="col-sm-8">
+                        {{create_estudiante.cedula}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ejecutó el voto?</label>
+                    <div class="col-sm-8">
+                       {{create_estudiante.do_vote}}
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label">Sexo</label>
+                    <div class="col-sm-8">
+                       {{create_estudiante.gender}}
+                    </div>
+                </div>
+               
+                {% csrf_token %}
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <input type="submit" class="btn-primary btn">
+                   
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+            
+        </div>
+        
+    </div>
+
+    
+
+
+</div>
+                            </div> <!-- .container-fluid -->
+                        </div> <!-- #page-content -->
+                    </div>
+                 
+
+
+{% include "backend/footer.html" %}

@@ -1,0 +1,36 @@
+<div id="wrapper">
+            <div id="layout-static">
+                <div class="static-sidebar-wrapper sidebar-default">
+                    <div class="static-sidebar">
+                        <div class="sidebar">
+	<div class="widget">
+        <div class="widget-body">
+            <div class="userinfo">
+                <div class="avatar">
+                    <img src="http://www.101club.org/joomla/components/com_jfusion/images/noavatar.png" class="img-responsive img-circle"> 
+                </div>
+                <div class="info">
+                    <span class="username">{% if user.is_authenticated %}{{ user.first_name }} {{ user.last_name }}{% endif %}</span>
+                    <span class="useremail">{% if user.is_authenticated %}{{ user.email }}{% endif %}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="widget stay-on-collapse" id="widget-sidebar">
+        <nav role="navigation" class="widget-body">
+	<ul class="acc-menu">
+		<li class="nav-separator"><span>Inicio</span></li>
+		<li><a href="/votaciones/backend/"><i class="ti ti-home"></i><span>Dashboard</span></a></li>
+        <li><a href="{% url 'view_partidos' %}"><i class="ti ti-flag"></i><span>Partidos</span></a></li>
+        <li><a href="{% url 'view_estudiantes' %}"><i class="ti ti-user"></i><span>Estudiantes</span></a></li>
+		
+	</ul>
+</nav>
+    </div>
+
+    <div class="widget" id="widget-progress">
+        
+    </div>
+</div>
+                    </div>
+                </div>

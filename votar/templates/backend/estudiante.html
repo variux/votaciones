@@ -1,0 +1,73 @@
+{% include "backend/header.html" %}
+
+<div class="static-content-wrapper">
+                    <div class="static-content">
+                        <div class="page-content">
+                            <ol class="breadcrumb">
+                                
+<li><a href="index.html">Home</a></li>
+<li><a href="#">Estudiantes</a></li>
+<li class="active"><a href="{% url 'view_estudiantes' %}">Ver</a></li>
+
+                            </ol>
+                            <div class="container-fluid">
+                                
+<div data-widget-group="group1" class="ui-sortable">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-info alert-dismissable ">
+                <i class="ti ti-info-alt"></i> A continuación se muestran los estudiante registrados oficialmente frente al Tribunal Electoral Estudiantil
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            </div>
+            <a href="{% url 'create_estudiante' %}" class="btn btn-large btn-success">Crear Estudiante</a>
+
+            <div class="panel panel-sky" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+                <div class="panel-heading">
+                    <h2>Estudiantes registrados ante el TEE</h2>
+                  
+              </div>
+              <div class="panel-body">
+               
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="padding-right:100px">ID</th>
+                                <th>Nombre</th>
+                                <th>Cedula</th>
+                                <th>Ejecutó el voto?</th>
+                                <th>Sexo</th>
+                                <th>Acciones</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for estudiante in estudiantes %}
+                            <tr>
+                                <td align="left"><i>{{ estudiante.id }}</i></td>
+                                <td>{{estudiante.nombre}}</td>
+                                <td>{{estudiante.cedula}}</td>
+                                <td>{%if estudiante.do_vote == True %} Sí {% else %} No {% endif %}</td>
+                                <td>{% if estudiante.gender == 1 %} Masculino {% else %} Femenino {% endif %}</td>
+                                <td><a href="/votaciones/backend/editar-estudiante/{{estudiante.id}}"><i class="ti ti-pencil"></i></a>&nbsp;&nbsp;<a href="/votaciones/backend/eliminar-estudiante/{{estudiante.id}}">X</a></td>
+                               
+                            </tr>
+                         {% endfor %}
+                          
+                        </tbody>
+                       
+                    </table>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            </div> <!-- .container-fluid -->
+                        </div> <!-- #page-content -->
+                    </div>
+                 
+
+
+{% include "backend/footer.html" %}

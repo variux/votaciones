@@ -1,0 +1,70 @@
+{% include "backend/header.html" %}
+
+<div class="static-content-wrapper">
+                    <div class="static-content">
+                        <div class="page-content">
+                            <ol class="breadcrumb">
+                                
+<li><a href="index.html">Home</a></li>
+<li><a href="#">Partidos</a></li>
+<li class="active"><a href="{% url 'view_partidos' %}">Ver</a></li>
+
+                            </ol>
+                            <div class="container-fluid">
+                                
+<div data-widget-group="group1" class="ui-sortable">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-info alert-dismissable ">
+                <i class="ti ti-info-alt"></i> A continuación se muestran los partidos registrados oficialmente frente al Tribunal Electoral Estudiantil
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            </div>
+            <a href="{% url 'create_partido' %}" class="btn btn-large btn-success">Crear Partido</a>
+            <div class="panel panel-sky" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+                <div class="panel-heading">
+                    <h2>Partidos Políticos</h2>
+                  
+              </div>
+              <div class="panel-body">
+               
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="padding-right:100px">ID</th>
+                                <th>Nombre</th>
+                                <th>Bandera</th>
+                                <th>Slogan</th>
+                                <th>Acciones</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for partido in partidos%}
+                            <tr>
+                                <td align="left"><i>{{ partido.id }}</i></td>
+                                <td>{{partido.nombre}}</td>
+                                <td><img style="height:100px;width:200px" class="img-responsive img-thumbnail" src="/media/{{partido.bandera}}"></td>
+                                <td>{{partido.slogan}}</td>
+                                <td><a href="/votaciones/backend/editar-partido/{{partido.id}}"><i class="ti ti-pencil"></i></a>&nbsp;&nbsp;<a href="/votaciones/backend/eliminar-partido/{{partido.id}}">X</a></td>
+                               
+                            </tr>
+                         {% endfor %}
+                          
+                        </tbody>
+                       
+                    </table>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                            </div> <!-- .container-fluid -->
+                        </div> <!-- #page-content -->
+                    </div>
+                 
+
+
+{% include "backend/footer.html" %}

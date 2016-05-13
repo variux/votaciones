@@ -1,0 +1,36 @@
+{% include "backend/header.html" %}
+
+<div class="static-content-wrapper">
+                    <div class="static-content">
+                        <div class="page-content">
+                            <ol class="breadcrumb">
+                                
+<li><a href="index.html">Home</a></li>
+<li><a href="#">Partidos</a></li>
+<li class="active"><a href="{% url 'view_partidos' %}">Ver</a></li>
+
+                            </ol>
+                            <div class="container-fluid">
+                                
+<div data-widget-group="group1" class="ui-sortable">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-danger alert-dismissable ">
+                <i class="ti ti-info-alt"></i> Error {{accion}}<br/>
+
+                <a href="/votaciones/backend/" class="btn btn-danger">Volver al Inicio</a>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            </div>
+
+           
+        </div>
+    </div>
+</div>
+
+                            </div> <!-- .container-fluid -->
+                        </div> <!-- #page-content -->
+                    </div>
+                 
+
+
+{% include "backend/footer.html" %}

@@ -1,0 +1,79 @@
+{% include "backend/header.html" %}
+
+<div class="static-content-wrapper">
+                    <div class="static-content">
+                        <div class="page-content">
+                            <ol class="breadcrumb">
+                                
+<li><a href="index.html">Home</a></li>
+<li><a href="#">Estudiantes</a></li>
+<li class="active"><a href="#">Editar</a></li>
+
+                            </ol>
+                            <div class="container-fluid">
+                                
+                                <div data-widget-group="group1" class="ui-sortable">
+
+    <div class="panel panel-default" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+        <div class="panel-heading">
+            <h2>Editando el partido: {{estudiante.nombre}}</h2>
+            <div class="panel-ctrls" data-actions-container="" data-action-collapse="{&quot;target&quot;: &quot;.panel-body&quot;}"><span class="button-icon has-bg"><i class="ti ti-angle-down"></i></span></div>
+        </div>
+        <div class="panel-editbox" data-widget-controls=""></div>
+        <div class="panel-body">
+            <form action="" enctype="multipart/form-data" method="POST" class="form-horizontal row-border">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nombre</label>
+                    <div class="col-sm-8">
+                        <input type="text" name="nombre" value="{{estudiante.nombre}}" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Cedula</label>
+                    <div class="col-sm-8">
+                        <input type="number" name="cedula" value="{{estudiante.cedula}}" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ejecutó el voto?</label>
+                    <div class="col-sm-8">
+                        <input type="checkbox" name="do_vote" class="form-control" {% if estudiante.do_vote == True %} checked {% endif %}>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label">Sexo</label>
+                    <div class="col-sm-8">
+                        <select name="gender" class="form-control" required="">
+                            <option {% if estudiante.gender == 0 %} selected {% endif %} value="0"> Femenino </option>
+                            <option {% if estudiante.gender == 1 %} selected {% endif %} value="1"> Masculino </option>
+                        </select>
+                    </div>
+                </div>
+                <input type="hidden" name="id_estudiante" value="{{estudiante.id}}">
+                {% csrf_token %}
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <input type="submit" class="btn-primary btn">
+                   
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+            
+        </div>
+        
+    </div>
+
+    
+
+
+</div>
+                            </div> <!-- .container-fluid -->
+                        </div> <!-- #page-content -->
+                    </div>
+                 
+
+
+{% include "backend/footer.html" %}
